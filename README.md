@@ -8,7 +8,7 @@ Pendiente (Tarea)
 
 - Utilizar la funcion creada para loguear usuarios
 
-### Prox clase
+### segunda clase
 
-- Creación de sessiones
+- Creación de sessiones (middlewares)
 - Proteccion de rutas.
