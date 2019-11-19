@@ -20,7 +20,7 @@ krowdy.set('view engine', 'ejs');
 //middlewares
 krowdy.use(morgan('dev'));
 krowdy.use(express.urlencoded({extended: false}));
-krowdy.use(express.json());
+//krowdy.use(express.json());
 krowdy.use(session({
   secret: 'session1',
   resave: false,
@@ -30,8 +30,16 @@ krowdy.use(flash());
 krowdy.use(passport.initialize());
 krowdy.use(passport.session());
 
+krowdy.use((req, res, next) => {
+  krowdy.locals.signinMessage = req.flash('singinMessage');
+  krowdy.locals.signupMessage = req.flash('singupMessage');
+  krowdy.locals.user = req.user;
+  console.log(krowdy.locals)
+  next();
+});
+
 //routes
-krowdy.use('/', require('./routes/index.js'));
+krowdy.use('/', require('./routes/index'));
 
 //Starting server
 krowdy.listen(krowdy.get('port'), () =>{

@@ -7,6 +7,15 @@
   <title>Autentificación</title>
 </head>
 <body>
+
+  <%if (signinMessage) {%>
+    <p><%= signinMessage %></p>
+  <% } %>
+
+  <%if (signupMessage) {%>
+    <p><%= signupMessage %></p>
+  <% } %>
+
   <%- body %>
 </body>
 </html>
